@@ -1,0 +1,89 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+html{
+    scroll-behavior: smooth;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.home{
+    width: 100%;
+    min-height: 100vh;
+    background: #212332;
+    overflow: hidden;
+}
+section .countdown-view{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    height: 100vh;
+    width: 100vw;    
+}
+.home .countdown-view .circle{
+    background: #fefefe;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+}
+.home .countdown-view .circle div{
+    font-size: 4rem;
+    font-weight: 600;
+    font-style: italic;
+    color: #cc3c3c;
+    letter-spacing: 2px;
+}
+.home .countdown-view .circle span{
+    font-weight: 500;
+    font-size: 16px;
+    margin-top: 5px;
+    text-transform: uppercase;
+    font-style: oblique;
+}
+.home .message{
+    background:linear-gradient(to right, rgba(66, 66, 255,0.6),rgba(255, 255, 170, 0.9));
+    position: absolute;
+    bottom: 25%;
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+    border:1px dotted blueviolet;
+    display: none;
+    user-select: none;
+    
+}
+.home .message.on{
+    display: inline-block;
+}
+.home .message h4{
+    font-size: 22px;
+    letter-spacing: 2px;
+    font-style: italic;
+    text-rendering: auto;
+    text-transform: capitalize;
+    opacity: 0;
+    transition: all .5s ease-in-out;
+    animation: blink 1.4s forwards infinite;
+    animation-duration: 3s;
+    background:linear-gradient(to right, rgba(66, 66, 255,0.6),rgba(225, 225, 70,0.9));
+    display: inline-block;
+    background-clip:text;
+    -moz-background-clip: text;
+}
+@keyframes blink {
+    0%,100%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+        letter-spacing: 1rem;
+    }
+}

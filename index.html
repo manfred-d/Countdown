@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- css -->
+    <link href="./style.css" rel="stylesheet" />
+
+    <title>Counter</title>
+</head>
+
+<body>
+    <section class="home">
+        <div class="countdown-view">
+            <div class="circle">
+                <div class="days"></div>
+                <span>Days</span>
+            </div>
+            <div class="circle">
+                <div class="hours"></div>
+                <span>Hours</span>
+            </div>
+            <div class="circle">
+                <div class="minutes"></div>
+                <span>Minutes</span>
+            </div>
+            <div class="circle">
+                <div class="seconds"></div>
+                <span>Seconds</span>
+            </div>
+        </div>
+        <div class="message">
+            <h4>Countdown over</h4>
+        </div>
+    </section>
+</body>
+<!-- script -->
+<script>
+
+    var deadline = new Date("dec 31, 2022 23:00:00").getTime();
+
+    let x = setInterval(() =>{
+        const countdown = document.querySelector('.countdown-view'),
+            days = document.querySelector(".days"),
+            hours = document.querySelector(".hours"),
+            mins = document.querySelector(".minutes"),
+            secs = document.querySelector(".seconds"),
+            message = document.querySelector(".message");
+
+        var now = new Date().getTime();
+        var t = deadline - now;
+        var day = Math.floor(t / (1000 * 60 * 60 * 24));
+        var hour = Math.floor((t % (1000 * 60 * 60 * 24)) /(1000 * 60 *60));
+        var min = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
+        var sec = Math.floor((t % (1000 * 60))/ 1000);
+
+        // output the data
+        days.innerHTML = day;
+        hours.innerHTML = hour;
+        mins.innerHTML = min;
+        secs.innerHTML = sec;
+
+        // time ends
+        if (t < 0) {
+            days.innerHTML = '0';
+            hours.innerHTML = '0';
+            mins.innerHTML = '0';
+            secs.innerHTML = '0';
+            message.classList.add('on');
+        }
+    }, 1000);
+
+
+</script>
+</html>
